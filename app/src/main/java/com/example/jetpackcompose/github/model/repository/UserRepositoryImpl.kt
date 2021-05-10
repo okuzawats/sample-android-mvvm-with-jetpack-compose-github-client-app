@@ -14,9 +14,9 @@ class UserRepositoryImpl @Inject constructor(
 
 private fun GitHubUser.toUser(): User {
     return User(
-        id = id,
+        userId = UserId(value = id),
         name = name,
         avatarImage = NetworkImage(url = Url(value = avatarUrl)),
-        blogUrl = Url(value = blog),
+        blogUrl = Url(value = blog)
     )
 }

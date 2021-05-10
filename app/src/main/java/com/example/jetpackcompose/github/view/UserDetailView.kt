@@ -9,7 +9,7 @@ import com.example.jetpackcompose.github.model.repository.User
 fun UserDetailView(user: User) {
     Column {
         Text(
-            text = user.id.toString()
+            text = user.userId.value.toString()
         )
         Text(
             text = user.name

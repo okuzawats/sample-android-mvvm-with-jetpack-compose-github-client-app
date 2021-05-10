@@ -20,7 +20,7 @@ class ApiClientProvider @Inject constructor() {
                 Json {
                     ignoreUnknownKeys = true
                 }.asConverterFactory(
-                    "application/json".toMediaType(),
+                    "application/json".toMediaType()
                 ),
             )
             .build()
