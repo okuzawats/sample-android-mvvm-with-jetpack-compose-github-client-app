@@ -18,23 +18,23 @@ fun MainView(mainViewModel: MainViewModel) {
             onSearchButtonTapped = mainViewModel::onSearchTapped,
         )
         when (uiState) {
-            is MainViewModel.UiState.None -> {
-                EmptyView()
+            is MainViewModel.UiState.Initial -> {
+                InitialView()
             }
             is MainViewModel.UiState.Loading -> {
                 LoadingView()
             }
-            is MainViewModel.UiState.Loaded -> {
+            is MainViewModel.UiState.Success -> {
                 UserDetailView(user = uiState.requireUser())
             }
-            is MainViewModel.UiState.Error -> {
+            is MainViewModel.UiState.Failure -> {
                 ErrorView()
             }
         }
     }
 }
 
-fun MainViewModel.UiState.requireUser(): User {
-    if (this !is MainViewModel.UiState.Loaded) throw IllegalStateException("user is not loaded")
+private fun MainViewModel.UiState.requireUser(): User {
+    if (this !is MainViewModel.UiState.Success) throw IllegalStateException("user is not loaded")
     return user
 }

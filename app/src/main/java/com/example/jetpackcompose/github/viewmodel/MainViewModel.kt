@@ -16,13 +16,13 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     sealed class UiState {
-        object None : UiState()
+        object Initial : UiState()
         object Loading : UiState()
-        data class Loaded(val user: User) : UiState()
-        object Error : UiState()
+        data class Success(val user: User) : UiState()
+        object Failure : UiState()
     }
 
-    val uiState: MutableState<UiState> = mutableStateOf(UiState.None)
+    val uiState: MutableState<UiState> = mutableStateOf(UiState.Initial)
 
     val searchQuery: MutableState<String> = mutableStateOf("")
 
@@ -34,9 +34,9 @@ class MainViewModel @Inject constructor(
             runCatching {
                 userRepository.getUser(userName = searchQuery)
             }.onSuccess {
-                uiState.value = UiState.Loaded(user = it)
+                uiState.value = UiState.Success(user = it)
             }.onFailure {
-                uiState.value = UiState.Error
+                uiState.value = UiState.Failure
             }
         }
     }

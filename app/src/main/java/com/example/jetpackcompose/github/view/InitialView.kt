@@ -4,7 +4,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun EmptyView() {
+fun InitialView() {
     Text(
         text = "検索してください"
     )
