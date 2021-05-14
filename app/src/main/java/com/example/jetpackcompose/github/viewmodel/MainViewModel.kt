@@ -10,6 +10,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * メイン画面に対するViewModel
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val userRepository: UserRepository
