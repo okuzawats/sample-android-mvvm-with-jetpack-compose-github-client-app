@@ -15,9 +15,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 }
 
-/**
- * [GitHubUser]を[User]に変換する拡張関数
- */
+// [GitHubUser]を[User]に変換する拡張関数
 private fun GitHubUser.toUser(): User {
     return User(
         userId = UserId(value = id),
