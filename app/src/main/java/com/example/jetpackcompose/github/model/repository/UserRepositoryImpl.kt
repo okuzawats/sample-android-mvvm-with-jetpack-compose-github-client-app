@@ -4,6 +4,9 @@ import com.example.jetpackcompose.github.model.remote_data_source.GitHubUser
 import com.example.jetpackcompose.github.model.remote_data_source.RemoteDataSource
 import javax.inject.Inject
 
+/**
+ * [UserRepository]の実装クラス
+ */
 class UserRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
 ) : UserRepository {
@@ -12,6 +15,9 @@ class UserRepositoryImpl @Inject constructor(
     }
 }
 
+/**
+ * [GitHubUser]を[User]に変換する拡張関数
+ */
 private fun GitHubUser.toUser(): User {
     return User(
         userId = UserId(value = id),
