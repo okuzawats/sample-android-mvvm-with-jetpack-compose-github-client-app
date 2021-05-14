@@ -2,6 +2,9 @@ package com.example.jetpackcompose.github.model.remote_data_source
 
 import javax.inject.Inject
 
+/**
+ * [RemoteDataSource]の実装クラス
+ */
 class RemoteDataSourceImpl @Inject constructor(
     private val apiClient: ApiClient,
 ) : RemoteDataSource {
@@ -15,4 +18,7 @@ class RemoteDataSourceImpl @Inject constructor(
     }
 }
 
+/**
+ * ResponseがisSuccessful != trueだった時に投げられる例外
+ */
 class HttpException : Throwable()

@@ -7,11 +7,17 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import javax.inject.Inject
 
+/**
+ * [ApiClient]を生成するクラス
+ */
 class ApiClientProvider @Inject constructor() {
     companion object {
         private const val API_END_POINT = "https://api.github.com/"
     }
 
+    /**
+     * [ApiClient]を返す
+     */
     @ExperimentalSerializationApi
     fun provide(): ApiClient {
         return Retrofit.Builder()

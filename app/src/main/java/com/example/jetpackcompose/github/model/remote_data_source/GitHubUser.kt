@@ -3,6 +3,9 @@ package com.example.jetpackcompose.github.model.remote_data_source
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * GitHub APIからのレスポンス
+ */
 @Serializable
 data class GitHubUser(
     @SerialName("id") val id: Long,
