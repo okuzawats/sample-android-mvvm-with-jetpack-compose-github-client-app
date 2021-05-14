@@ -9,6 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 
+/**
+ * 検索キーワードの入力フォームと検索実行ボタンの表示
+ */
 @Composable
 fun SearchView(
     searchQuery: MutableState<String>,
